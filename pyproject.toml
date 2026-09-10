@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "conformer-fidelity"
+version = "0.1.0"
+description = "Conformer generation adapters, stereochemical qualification and reproducible evaluation"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.26,<3", "rdkit>=2024.3"]
+
+[project.optional-dependencies]
+evaluation = ["torch>=2.5", "scipy>=1.13,<2", "PyYAML>=6,<7", "posebusters==0.6.5"]
+analysis = ["scipy>=1.13,<2"]
+dev = ["pytest>=8", "ruff>=0.9", "build>=1.2"]
+
+[project.scripts]
+conformer-fidelity = "conformer_fidelity.cli:main"
+
+[project.urls]
+Repository = "https://github.com/GeraltZeroZhong/conformer-fidelity"
+Issues = "https://github.com/GeraltZeroZhong/conformer-fidelity/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["conformer_fidelity", "conformer_fidelity.*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
