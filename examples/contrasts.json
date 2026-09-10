@@ -1,0 +1,15 @@
+{
+  "contrasts": [
+    {
+      "name": "post-minus-native",
+      "left_method": "post",
+      "left_metric": "qhit_1",
+      "right_method": "native",
+      "right_metric": "qhit_1",
+      "domain": [-1.0, 1.0]
+    }
+  ],
+  "metric_domains": {
+    "qhit_1": [0.0, 1.0]
+  }
+}
